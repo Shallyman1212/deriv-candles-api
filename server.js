@@ -47,10 +47,10 @@ const server = http.createServer(async (req, res) => {
   if (req.url === '/candles') {
     try {
       const [data4H, data1H, data15M] = await Promise.all([
-        fetchCandles(14400, 50),
-        fetchCandles(3600, 50),
-        fetchCandles(900, 30)
-      ]);
+  fetchCandles(14400, 30),
+  fetchCandles(3600, 24),
+  fetchCandles(900, 32)
+]);
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({
